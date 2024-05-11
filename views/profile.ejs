@@ -27,8 +27,10 @@
                         <h4 class="text-blue-500 mb-2">@<%= user.username%></h4>
                         <p class="text-sm tracking-tight"><%= e.content%></p>
                         <div class="btns flex justify-between mt-5">
-                            <a class="text-blue-500" href="">Like</a>
-                            <a class="text-zinc-600" href="">Edit</a>
+                            <a class="text-blue-500" href="/like/<%= e._id %>">
+                                <%= e.likes.indexOf(user._id) === -1 ? "Like" : "Unlike"%>
+                                <small><%= e.likes.length %></small></a>
+                            <a class="text-zinc-600" href="/edit/<%= e._id%>">Edit</a>
                         </div>
                     </div>
                 <%})%>
